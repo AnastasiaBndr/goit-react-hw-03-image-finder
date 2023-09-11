@@ -1,4 +1,4 @@
-import css from './styles.module.css';
+
 import React, { Component } from 'react';
 import Loader from './Loader'
 
