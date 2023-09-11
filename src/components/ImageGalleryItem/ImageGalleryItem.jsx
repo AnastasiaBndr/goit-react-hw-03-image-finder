@@ -1,6 +1,7 @@
 const ImageGalleryItem = () => {
-    return (<li class="gallery-item">
-        <img src="" alt="" />
+    return (<li className="ImageGalleryItem">
+        <img className="ImageGalleryItem-image" src="" alt="" />
+        Heh hooooo
     </li>)
 }
 

@@ -1,5 +1,5 @@
 const ImageGallery = () => {
-    return (<ul class="gallery">
+    return (<ul className="ImageGallery">
 
     </ul>)
 }

@@ -1,6 +1,6 @@
 const Button = () => {
-    return (<div class="overlay">
-        <button type="button">Load More</button>
+    return (<div>
+        <button className="Button" type="button">Load More</button>
     </div>)
 }
 
