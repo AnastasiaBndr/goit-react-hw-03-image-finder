@@ -1,7 +1,7 @@
 import { Dna } from 'react-loader-spinner'
 
 const Loader = () => {
-    return (<div className="overlay">
+    return (<div className="Loader">
         <Dna
             visible={true}
             height="80"

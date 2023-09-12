@@ -1,6 +1,6 @@
-const ImageGallery = () => {
-    return (<ul className="ImageGallery">
-
+const ImageGallery = (props) => {
+    return (<ul className="ImageGallery" onClick={props.onClick}>
+        {props.children}
     </ul>)
 }
 
