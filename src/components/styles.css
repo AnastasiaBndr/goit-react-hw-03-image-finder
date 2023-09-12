@@ -134,6 +134,8 @@ img {
   list-style: none;
   margin-left: auto;
   margin-right: auto;
+
+  margin-bottom: 40px;
 }
 
 /*
@@ -179,6 +181,35 @@ img {
   max-height: calc(100vh - 24px);
 
   color: white;
+}
+
+.Modal > button {
+  margin-left: 92%;
+
+  border-radius: 50%;
+  background: none;
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  text-align: center;
+  display: block;
+  color: #fff;
+  border: 1px solid #54505e;
+  text-decoration: none;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 18px;
+  line-height: 24px;
+  font-style: normal;
+  width: 40px;
+  height: 40px;
+  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2),
+    0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+}
+
+.Modal > button:hover,
+.Modal > button:focus {
+  background-color: #ada5c1;
+  border: 1px solid #ada5c1;
+  color: #1e1c21;
 }
 
 /*

@@ -26,6 +26,7 @@ export default class Modal extends Component {
         return createPortal(
             <div className="Overlay">
                 <div className="Modal">
+                    <button type="button" onClick={() => { this.props.toggleModal() }}>X</button>
                     <h4>{image.user}: <span>@{image.user_id}</span></h4>
                     <img width='500' loading="lazy" src={image.largeImageURL} alt={image.tags} />
                     <p className="tags"> {image.tags}</p>
