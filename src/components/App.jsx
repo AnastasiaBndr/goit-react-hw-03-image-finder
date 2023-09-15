@@ -21,6 +21,7 @@ export class App extends Component {
     isLoading: false,
     query: "",
     page: 1,
+    currentInput: '',
     perpage: 20,
     currentImage: "",
     loadMoreIsVisible: false,
@@ -54,7 +55,8 @@ export class App extends Component {
     this.setState({
       images: response.data.hits,
       isLoading: false,
-      nothingFoundVisible: false
+      nothingFoundVisible: false,
+      currentInput: this.state.query
     });
 
     console.log(response.data.totalHits);
@@ -70,9 +72,9 @@ export class App extends Component {
 
   onHandleLoadMore = async () => {
 
-    const { page, query } = this.state;
+    const { page, currentInput } = this.state;
     await this.setState(() => { return { page: page + 1 } });
-    const response = await axios.get(URL + KEY + query + "&page=" + this.state.page);
+    const response = await axios.get(URL + KEY + currentInput + "&page=" + this.state.page);
     const newArr = this.state.images;
     newArr.push(...response.data.hits);
 
