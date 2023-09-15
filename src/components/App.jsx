@@ -23,10 +23,9 @@ export class App extends Component {
     page: 1,
     perpage: 20,
     currentImage: "",
-    loadMoreIsVisible: false
+    loadMoreIsVisible: false,
+    nothingFoundVisible: false
   }
-
-
 
   toggleModal = () => {
     this.setState(({ showModal }) => ({ showModal: !this.state.showModal }));
@@ -55,11 +54,15 @@ export class App extends Component {
     this.setState({
       images: response.data.hits,
       isLoading: false,
+      nothingFoundVisible: false
     });
 
-    if (response.data.totalHits.length < 20) {
-      this.setState({ loadMoreIsVisible: false })
-    } else this.setState({ loadMoreIsVisible: true })
+    if (response.data.totalHits === 0) {
+      this.setState({ loadMoreIsVisible: false, nothingFoundVisible: true });
+    } else
+      if (response.data.totalHits.length < 20) {
+        this.setState({ loadMoreIsVisible: false })
+      } else this.setState({ loadMoreIsVisible: true })
 
   }
 
@@ -108,6 +111,7 @@ export class App extends Component {
         }
       </ImageGallery>
       {this.state.isLoading && <Loader />}
+      {this.state.nothingFoundVisible && <div className='nothing-found'><p>Nothing found :(</p></div>}
       {this.state.loadMoreIsVisible && <Button loadMore={this.onHandleLoadMore} />}
     </div>);
   }

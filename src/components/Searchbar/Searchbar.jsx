@@ -1,6 +1,6 @@
 const Searchbar = ({ findImage, onClickSubmit }) => {
     return (<header className="Searchbar">
-        <form className="SearchForm">
+        <form className="SearchForm" onSubmit={onClickSubmit}>
             <button type="button" className="SearchForm-button" onClick={onClickSubmit}>
                 <span className="button-label">&#x1F50E;&#xFE0E;</span>
             </button>
