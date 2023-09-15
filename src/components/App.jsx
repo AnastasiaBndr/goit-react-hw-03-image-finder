@@ -57,10 +57,12 @@ export class App extends Component {
       nothingFoundVisible: false
     });
 
+    console.log(response.data.totalHits);
+
     if (response.data.totalHits === 0) {
       this.setState({ loadMoreIsVisible: false, nothingFoundVisible: true });
     } else
-      if (response.data.totalHits.length < 20) {
+      if (response.data.totalHits <= 20) {
         this.setState({ loadMoreIsVisible: false })
       } else this.setState({ loadMoreIsVisible: true })
 
@@ -92,7 +94,6 @@ export class App extends Component {
     const imgSrc = evt.target.src;
     const image = images.find(img => { return img.previewURL === imgSrc });
     this.setState({ currentImage: image, showModal: true });
-    console.log(image);
   }
 
   render() {
