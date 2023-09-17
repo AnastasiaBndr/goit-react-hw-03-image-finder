@@ -50,6 +50,8 @@ export class App extends Component {
   onClickSubmit = async evt => {
     evt.preventDefault();
 
+    await this.setState({page:1});
+
     const response = await axios.get(URL + KEY + this.state.query + "&page=" + this.state.page + "&per_page=" + this.state.perpage);
 
     this.setState({
