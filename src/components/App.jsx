@@ -76,13 +76,14 @@ export class App extends Component {
 
     const { page, currentInput } = this.state;
     await this.setState(() => { return { page: page + 1 } });
+    await this.setState({isLoading:true, loadMoreIsVisible:false});
     const response = await axios.get(URL + KEY + currentInput + "&page=" + this.state.page);
     const newArr = this.state.images;
     newArr.push(...response.data.hits);
 
     if (this.state.page >= response.data.totalHits / this.state.perpage) {
       this.setState({ loadMoreIsVisible: false })
-    }
+    }else this.setState({loadMoreIsVisible:true});
 
     this.setState({
       images: newArr,
